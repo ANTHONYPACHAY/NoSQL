@@ -1,0 +1,140 @@
+.background-panel{
+    margin: auto;
+    width: 100%;
+    /*text-align: center;*/
+    /*color: white;*/
+    position: relative;
+    background-image: url('../img/background.png');
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+#background-panel:before{
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;  
+    background: black;
+    opacity: 0.2;
+}
+
+.panel-home{
+    background-color: #ced4da;
+    width: 80vw;
+    height: 85vh;
+    min-width: 450px;
+    border-radius: 5px;
+}
+.panel-menu{
+    position: relative;
+    /*width: 5vw;*/
+    height: 100%;
+    background-color: #FFF;
+    float: left;
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5px 0px 0px 5px;
+}
+.panel-view{
+    float: right;
+}
+.fill-menu{
+    align-content: flex-end;
+    /*padding-bottom: 10px;*/
+    height:100%;
+}
+/*backgorund*/
+
+.style-counts{
+    color:black;
+    /*margin-top: 20px;*/
+    text-align: center;
+    height: 15vh;
+}
+.style-important{
+    color:black;
+    /*margin-top: 20px;*/
+    text-align: center;
+    height: 50vh;
+}
+
+.items-count{
+    height: 80px;
+    margin-right: 15px;
+    width: 15vw;
+    /*height: 100px;*/
+
+    /*margin-top: 20px;*/
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    color: white;
+}
+
+.items-count img{
+    margin-right: 20px;
+    width: 25px!important;
+    height: 25px!important;
+}
+.items-count span{
+    color: white;
+}
+
+.panel-back-inicio{
+    background-image: url('../img/Bemoving.png');
+    /*width:70vh;*/
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: auto 68vh;
+    height: 70vh!important;
+    /*z-index: 0;*/
+    /*bottom: 10px;*/
+}
+
+.min-table th, .min-table td {
+    padding: 0.4rem!important;
+    font-size: 12px!important;
+}
+
+/*mapa*/
+
+#mapid_mapa, info_mapa{
+    position: relative;
+    /*height: 85vh;*/
+    min-height: 85vh;   
+    /*max-height: 85vh;*/
+}
+#info_mapa{
+    width: 225px;
+    height: 85vh;
+    overflow: auto;
+}
+
+.my-nav{
+    height: 5vh!important;
+}
+.my-nav .nav-item{
+    height: 5vh!important;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+    font-size: 14px;
+
+}
+.my-nav .nav-item .nav-link{
+    vertical-align: middle;
+    height: 5vh!important;
+}
+
+.full-container-height{
+    height: 85vh!important;
+}

@@ -1,0 +1,32 @@
+.leaflet-control-layers{
+    width: 100%;
+    position: relative;
+    box-shadow:0 0px 0px rgba(0,0,0,0)!important;
+    border-radius: 0px;
+    border-width: 0px;
+}
+
+.leaflet-touch .leaflet-control-layers{
+    border: 0px;
+}
+
+.leaflet-control-geocoder a,
+.leaflet-control-geocoder span,
+.leaflet-control-geocoder input,
+.leaflet-control-geocoder button{
+    font-size: 12px!important;
+}
+.leaflet-control-geocoder-expanded{
+    /*background-color: #003eff!important;*/
+}
+.leaflet-control-geocoder-alternatives{
+    width: 100%!important;
+}
+.leaflet-control-geocoder{
+    border-radius: 0px;
+    border-width: 0px;
+    min-width: 200px!important;
+}
+.leaflet-control-geocoder-form{
+    width: 150px!important;
+}

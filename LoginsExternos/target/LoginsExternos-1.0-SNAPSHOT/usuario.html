@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="app">
+    <head>
+        <title>EaAccess</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="resources/img/homeico.png">
+
+        <link href="resources/css/cssLibrary/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/cssLibrary/open-iconic-bootstrap.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="resources/css/cssLibrary/magic.min.css" rel="stylesheet" type="text/css"/>-->
+        <link href="resources/css/cssLibrary/toastr.min.css" rel="stylesheet" type="text/css"/>
+        <!--<link href="resources/css/estilosindex.css" rel="stylesheet" type="text/css"/>-->
+
+        <link href="resources/css/estilosindex.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/utils.css" rel="stylesheet" type="text/css"/>
+
+        <script src="resources/js/jsLibrary/jquery.min.js" type="text/javascript"></script>
+        <script src="resources/js/jsLibrary/popper.min.js" type="text/javascript"></script>
+        <script src="resources/js/jsLibrary/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="resources/js/jsLibrary/angular.js" type="text/javascript"></script>
+
+        <script src="resources/js/jsLibrary/store2.min.js" type="text/javascript"></script>
+        <script src="resources/js/jsLibrary/sweetalert2.min.js" type="text/javascript"></script>
+        <script src="resources/js/jsLibrary/toastr.min.js" type="text/javascript"></script>
+
+    </head>
+    <body ng-controller="ctrolusr">
+
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="resources/img/logoapp.png" height="35" class="d-inline-block align-top" alt=""/>
+                <!--<img src="resources/img/alphabeth/alphabet.png"  width="35" height="35" class="d-inline-block align-top" alt="">-->
+                <!--Letritas-->
+            </a>
+        </nav>
+        <div class="container-fluid abs-center " style="height: 90vh;">
+            <div id="panel_registro" class="panel-usuario centrar">
+                <nav class="navbar navbar-light bg-dark min-nav">
+                </nav>
+                <div class="container-fluid contenedor">
+                    <div class="text-center">
+                        <h5>Usuario Actual</h5>    
+                    </div>
+                    <div class="container-fluid abs-center panel-img">
+                        <img width="100" class="img-login" ng-src="{{modelregistrar.userimage}}" src="resources/img/fodito.png" alt=""/>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row form-group min-margin textcenter">
+                            <div>
+                                <img crossorigin="Anonymous" height="20" ng-src="{{'resources/icons/apis/' + modelregistrar.provider + '.svg'}}" />
+                                <span class="badge badge-warning">{{modelregistrar.provider}}</span>
+                            </div>
+                        </div>
+                        <div class="row form-group min-margin">
+                            <div class="col-2 ">
+                                <span class="oi oi-person"></span>      
+                            </div>
+                            <input ng-model="modelregistrar.username" class="form-control col spnR" type="text" placeholder="Ingrese su nombre" maxlength="50" data-toggle="tooltip" data-placement="left" title="max. 50 caracteres"/>
+                        </div>
+                        <div class="row form-group min-margin">
+                            <div class="col-2 ">
+                                <span class="oi oi-person"></span>     
+                            </div>
+                            <input ng-model="modelregistrar.userlastname" class="form-control col spnR" type="text" placeholder="Ingrese su apellido" maxlength="50"  data-toggle="tooltip" data-placement="left" title="max. 50 caracteres"/>
+                        </div>
+                        <div class="row form-group min-margin">
+                            <div class="col-2 ">
+                                <span class="oi oi-envelope-closed align-middle"></span>        
+                            </div>
+                            <input ng-model="modelregistrar.useremail" class="form-control col spnR" type="email" placeholder="Ingrese su email" maxlength="100" data-toggle="tooltip" data-placement="left" title="max. 100 caracteres" readonly/>
+                        </div>
+                        <div class="form-group text-center min-margin">
+                            <span class="col text-left form-group min-margin">
+                                <a ng-click="cerrar()" class="aA text-info">Cerrar</a>    
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+                    var app = angular.module('app', []);
+                    app.controller('ctrolusr', function ($scope, $http) {
+                        $scope.modelregistrar = {};
+                        $(document).ready(() => {
+                            let data = getDataSession();
+                            console.log("usr", data);
+                            $scope.$apply(() => {
+                                $scope.modelregistrar = {
+                                    useremail: data.email_p,
+                                    id: data.id_p,
+                                    userimage: data.img_p,
+                                    userlastname: data.lastname_p,
+                                    username: data.name_p,
+                                    pwd: data.password_p,
+                                    provider: data.provider_p
+                                };
+                            });
+                        });
+
+                        $scope.cerrar = () => {
+                            cerrarSesion();
+                        };
+                    });
+        </script>
+        <script src="resources/js/js_global.js" type="text/javascript"></script>
+        <script src="resources/js/js_sesiones.js" type="text/javascript"></script>
+        <script src="resources/js/js_utilitarios.js" type="text/javascript"></script>
+        <script src="resources/js/utils_alertas.js" type="text/javascript"></script>
+        <script src="resources/js/utils_validaciones.js" type="text/javascript"></script>
+    </body>
+</html>
