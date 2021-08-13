@@ -1,0 +1,48 @@
+<div class="form-group">
+    <div class="row">
+        <select class="col form-control" ng-model="item">
+            <option ng-repeat="head in headers" value="{{head.value}}" >{{head.display}}</option>
+        </select>
+        <input type="text" class="col form-control" ng-model="textfilt">
+    </div>
+</div>
+<span class="h6 text-muted">
+    <span class="oi oi-copywriting"></span>
+    List of registered users:
+</span>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                <span>Image</span>
+            </th>
+            <th ng-repeat="head in headers">
+                <span>{{head.display + ' '}}     
+                </span>
+            </th>
+            <th>
+                <span>Action</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="persona in personas" ng-show="canShow(persona)">
+            <td>
+                <img crossorigin="Anonymous" ng-src="{{persona['n.img_p']||'resources/img/fodito.png'}}" onerror="this.src='resources/img/fodito.png'"  width="25" class=" rounded-circle shadow-sm" >
+            </td>
+            <td ng-repeat="head in headers">{{persona[head.value]}}</td>
+            <td>
+                <span class="btn btn-light" ng-show="showOptions(persona['identifier']) === 1" >
+                    <span class="badge badge-secondary">You</span>    
+                </span>
+                <span class="btn btn-light" ng-show="showOptions(persona['identifier']) === 2" >
+                    <span class="oi oi-heart text-warning"></span>    
+                </span>
+                <span ng-click="addFriend(persona['identifier'])" class="btn btn-light" ng-show="showOptions(persona['identifier']) === 3" >
+                    <span class="oi oi-plus text-info"></span>
+                </span>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

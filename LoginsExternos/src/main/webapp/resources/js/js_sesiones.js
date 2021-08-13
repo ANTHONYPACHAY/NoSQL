@@ -6,6 +6,7 @@ var globalPages = {
 
 function getDataSession() {
     var dataUser = store.session.get("usuario_app");
+//    debugger;
     if (dataUser === undefined || dataUser === null || dataUser == "undefined")
     {
         if (currentPage() !== globalPages.login)

@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="span3 well">
+        <center>
+            <img crossorigin="Anonymous" ng-src="{{dataUser['n.img_p']}}" onerror="this.src='resources/img/fodito.png'"  width="140" class="mr-3 rounded-circle img-thumbnail shadow-sm">
+            <div class="media-body">
+                <h4 class="m-0">{{dataUser['n.lastname_p']}}</h4>
+                <p class="font-weight-light text-muted mb-0">{{dataUser['n.name_p']}}</p>
+            </div>
+            <span class="badge badge-info">{{dataUser['n.email_p']}}</span>
+            <span class="badge badge-warning">{{dataUser['n.provider_p']}}</span>
+        </center>
+    </div>
+
+    <div class="row">	
+        <div class="col-lg-6 offset-lg-3">
+            <div class="cardbox shadow-lg bg-white" ng-repeat="posts in postsList | orderBy : post_id">
+                <div class="cardbox-heading">
+                    <div class="media m-0">
+                        <div class="d-flex mr-3">
+                            <a href="">
+                                <img class="img-fluid rounded-circle" crossorigin="Anonymous" ng-src="{{posts['img']}}" onerror="this.src='resources/img/fodito.png'" alt="User">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p class="m-0">{{posts['name'] + ' ' + posts['lastname']}}</p>
+                            <!--<small><span><i class="icon ion-md-pin"></i> Nairobi, Kenya</span></small>-->
+                            <small><span><i class="icon ion-md-time"></i>{{posts['date']}}</span></small>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardbox-item">
+                    <img class="img-fluid" 
+                         ng-src="{{posts['url_image']}}" onerror="this.src='resources/img/fodito.png'"
+                         alt="Image">
+                </div>
+                <div class="cardbox-base">
+                    <ul>
+                        <li>
+                            <a>
+                                <span>
+                                    {{posts['description']}}
+                                </span>
+                            </a>
+                        </li>
+                    </ul>			   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

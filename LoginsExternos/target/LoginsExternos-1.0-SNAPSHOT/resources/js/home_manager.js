@@ -1,45 +1,49 @@
-/* global angular */
-
-var app = angular.module('app', ["ngRoute"]);//, "ngAnimate"
+$('#sidebarCollapse').click(function () {
+    $('#sidebar, #content').toggleClass('active');
+});
+var globalData;
+var app = angular.module('app', ["ngRoute"]); //, "ngAnimate"
 app.config(function ($routeProvider) {
     $routeProvider
             .when("/", {
                 templateUrl: "background.html",
                 controller: "background"
             })
-            .when("/publicMap", {
-                templateUrl: "mapa.html",
-                controller: "mapa",
-                controllerAs: "mapa"
+            .when("/persons", {
+                templateUrl: "persons.html",
+                controller: "persons"
             })
-            .when("/mispuntos", {
-                templateUrl: "mispuntos.html",
-                controller: "mapa_mispuntos"
+            .when("/friends", {
+                templateUrl: "friends.html",
+                controller: "friends"
             })
-            .when("/misrutas", {
-                templateUrl: "misrutas.html",
-                controller: "mapa_misrutas"
+            .when("/friendspost", {
+                templateUrl: "friendspost.html",
+                controller: "friendspost"
+            })
+            .when("/profile", {
+                templateUrl: "profile.html",
+                controller: "profile"
+            })
+            .when("/test", {
+                templateUrl: "test.html",
+//                controller: "friends"
             })
             .otherwise({
                 redirectTo: 'nodisponible',
                 templateUrl: 'nodisponible.html'
             });
 });
-
-
 app.controller("user_manager", function ($scope, $http) {
 
     $scope.DatoUsuario = {};
-
     $(document).ready(function () {
         globalData = getDataSession();
         if (globalData.user_token !== undefined && globalData.user_token !== null)
         {
-            validarSesion(globalData.user_token);
             $scope.$apply(() => {
                 $scope.DatoUsuario = globalData;
             });
-            createIconsLeaf();
         } else {
             globalData = {};
             swalDelay({
@@ -49,32 +53,22 @@ app.controller("user_manager", function ($scope, $http) {
             }, "login");
         }
     });
-
-    $scope.getItemIndex = getItemIndex;
     $scope.cerrarSesion = function () {
         cerrarSesion();
     };
-
-    $scope.publicMap = function () {
-        location.href = "#!publicMap";
-//        angular.element($('[ng-controller="mapa"]')).scope().meReady();
+    $scope.persons = function () {
+        location.href = "#!persons";
+        //        angular.element($('[ng-controller="mapa"]')).scope().meReady();
+    };
+    $scope.friends = function () {
+        location.href = "#!friends";
+        //        angular.element($('[ng-controller="mapa"]')).scope().meReady();
+    };
+    $scope.friendspost = function () {
+        location.href = "#!friendspost";
     };
 
-    $scope.mispuntos = function () {
-        location.href = "#!mispuntos";
-//        angular.element($('[ng-controller="mapa"]')).scope().meReady();
-    };
-    $scope.misrutas = function () {
-        location.href = "#!misrutas";
+    $scope.profile = function () {
+        location.href = "#!profile";
     };
 });
-
-function verpunto(val) {
-    console.log("llamar a", val);
-    angular.element($('[ng-view')).scope().verinfopunto(val);
-}
-function verRuta(val) {
-    console.log("llamar a", val);
-    angular.element($('[ng-view')).scope().verinforuta(val);
-}
-//angular.element($('[ng-view')).scope().geoInversa(-1.0430657, -79.6384996);

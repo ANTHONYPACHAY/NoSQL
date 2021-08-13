@@ -31,7 +31,10 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(PersonApi.class);
+        resources.add(apis.FriendsApi.class);
+        resources.add(apis.PersonApi.class);
+        resources.add(apis.PublicationsApi.class);
+        resources.add(org.glassfish.jersey.server.wadl.internal.WadlResource.class);
     }
     
 }

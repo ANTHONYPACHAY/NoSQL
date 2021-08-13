@@ -1,0 +1,17 @@
+DAO\PersonDAO.class
+DAO\PublicationsDAO.class
+utilitarios\Neo4jConection.class
+utilitarios\FileAccess.class
+apis\PublicationsApi.class
+MODELS\Person.class
+MODELS\Publications.class
+apis\FriendsApi.class
+utilitarios\DataStatic.class
+utilitarios\Email.class
+neo\init.class
+DAO\FriendsDAO.class
+utilitarios\Methods.class
+apis\ApplicationConfig.class
+utilitarios\Conection.class
+utilitarios\WeEncoder.class
+apis\PersonApi.class

@@ -1,0 +1,29 @@
+<div class="row margin-zero padding-zero">
+    <div class="container ">
+        <span class="h6 text-muted">
+            <span class="oi oi-copywriting"></span>
+            List of all your friends:
+        </span>
+        <!--<div class="float-end badge rounded-pill bg-light text-dark" ng-click="loadDraws()" ng-disabled="acction.charge !== true">Recargar</div>-->
+    </div>
+    <div class="container floatParent" style="margin-bottom: 25px;">
+
+        <div class="card" ng-repeat="item in friends" ng-hide="itsMe(item['identifier'])" style="width: 13rem;margin: 5px;">
+            <img crossorigin="Anonymous" style="padding: 10px;" alt="." class="card-img-top"
+                 ng-src="{{item['to.img_p']||'resources/img/fodito.png'}}" onerror="this.src='resources/img/fodito.png'">
+            <div class="card-body">
+                <h5 class="text-muted margin-zero">{{item['to.lastname_p']}}</h5>
+                <h6 class="text-muted margin-zero">{{item['to.name_p']}}</h6>
+                <p class="card-text margin-zero text-info">
+                    {{item['to.email_p']}}
+                </p>
+                <span  ng-click="viewPost(item)" class="badge badge-warning">
+                    <span class="oi oi-account-login"></span> View Posts
+                </span>
+                <span ng-click="rmFriend(item['identifier'])" class="badge badge-danger">
+                    <span class="oi oi-trash"></span> Delete Friend
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

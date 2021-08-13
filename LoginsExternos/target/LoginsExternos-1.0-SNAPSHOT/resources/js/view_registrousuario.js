@@ -145,9 +145,10 @@ app.controller('registrousuario', function ($scope, $http) {
             if (data.status === 2)
             {
                 data.tittle = "Iniciar Sesión.";
-                store.session.set("usuario_app", data.data[0]);
+                store.session.set("usuario_app", data.data);
             }
-            toastrDelay(data, 'usuario.html');
+//            toastrDelay(data, 'usuario.html');
+            toastrDelay(data, 'home.html');
         });
     }
 

@@ -1,0 +1,49 @@
+
+<div style="background-image: url('resources/img/based-on-graph.gif'); background-position: center" class="abs-center form-group row container margin-zero padding-zero fullprocent panel-back-inicio">
+    <!--<div class="text-center" style="width: 3vh; width: 100%;padding-top: 8px;"><p class="font-weight-light margin-zero">Contadores de la aplicación:</p></div>-->
+    <div class="form-group row margin-zero container style-counts abs-center" style=" padding: 0px 20px 0px 20px; border-radius: 5px;z-index:1; ">
+        <div class="items-count" style="background-color: #fdcb6e;">
+            <span class="oi oi-person" style="margin-right: 10px;"></span>
+            <span>{{homeData.counter0 + ' Users'}}</span>
+        </div>
+        <div class="items-count" style="background-color: #00cec9">
+            <span class="oi oi-people" style="margin-right: 10px;"></span>
+            <span>{{homeData.counter1 + ' Friends'}}</span>
+        </div>
+        <div class="items-count" style="background-color: #e17055">
+            <span class="oi oi-book" style="margin-right: 10px;"></span>
+            <span>{{homeData.counter2 + ' Posts'}}</span>
+        </div>
+    </div>
+    <span class="badge badge-light">
+        <span class="h3 text-muted">Bienvenidos a nuestra aplicación.</span>
+    </span>
+    <!--<img src="resources/img/based-on-graph.gif" alt=""/>-->
+    <!--    <div class="form-group row margin-zero container style-important" style="justify-content: flex-end;padding-top: 25px;">
+            <div style="width: 35vw; min-width: 250px;" ng-show="homeData.querydata.length > 0">
+                <p class="font-weight-light margin-zero">Rutas con mejor calificación.</p>
+                <div class="scroll"  style="height: 30vh!important;">
+                    <table class="table min-table" >
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">calificación</th>
+                                <th scope="col">Ubicación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in homeData.querydata">
+                                <th scope="row">{{$index + 1}}</th>
+                                <td>
+                                    <a ng-click='visitarpunto(item.id_ruta)'>{{item.nombre_ruta}}</a>
+                                </td>
+                                <td>{{item.calificacion_ruta}}</td>
+                                <td>{{procesaUbicacion(item)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>-->
+</div>

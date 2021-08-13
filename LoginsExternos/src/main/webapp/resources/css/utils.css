@@ -92,3 +92,11 @@ a span{cursor: pointer;}
     padding-left: 25px!important;
     padding-right: 25px!important;
 }
+
+.isbutton{cursor: pointer;}
+
+.floatParent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}

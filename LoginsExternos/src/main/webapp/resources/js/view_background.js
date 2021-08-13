@@ -10,7 +10,8 @@ app.controller('background', function ($scope, $http) {
         if (Object.keys(globalData).length > 0)
         {
             $scope.DatoUsuario = globalData;
-            cargaHome({"user_token": globalData.user_token});
+//            cargaHome({"user_token": globalData.user_token});
+            cargaHome({});
         } else {
             sesionCaducada();
         }
@@ -21,22 +22,27 @@ app.controller('background', function ($scope, $http) {
             method: "POST",
             dataType: "json",
             contentType: "application/json; charset=utf-8",
-            url: urlWebServicies + 'general/getHombeInfo',
+            url: urlWebServicies + 'friends/gethomeLoad',
             data: JSON.stringify(data),
             beforeSend: function () {
                 loading();
             }, success: function (data) {
                 swal.close();
-                data.tittle = "Inicio.";
+                data.tittle = "Home.";
                 console.log(data);
                 if (data.status === 2) {
+                    let mindata = data.data;
                     $scope.$apply(function () {
-                        $scope.homeData = data.data[0];
+                        $scope.homeData = {
+                            counter0: mindata[0].counter,
+                            counter1: mindata[1].counter,
+                            counter2: mindata[2].counter
+                        };
                     });
                 } else if (data.status === 6) {
                     sesionCaducada();
                 } else {
-                    data.tittle = "Inicio";
+                    data.tittle = "Home";
                     toastrDelay(data);
                 }
             }, error: function (objXMLHttpRequest) {
